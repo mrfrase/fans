@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página con Video y Smart Link</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
+    .banner, .bottom-banner {
+      width: 100%;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .video-container {
+      position: relative;
+      display: inline-block;
+    }
+    .video-title {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+    video {
+      width: 90%;
+      max-width: 640px;
+      border: 3px solid #444;
+      cursor: pointer;
+    }
+    .play-button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner superior con script Adsterra -->
+  <div class="banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'REEMPLAZA_CON_TU_KEY_SUPERIOR',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/REEMPLAZA_URL_SUPERIOR.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <!-- Título del video -->
+  <div class="video-title">¡Disfruta este contenido exclusivo!</div>
+
+  <!-- Video con enlace -->
+  <div class="video-container">
+    <video id="promoVideo" poster="https://via.placeholder.com/640x360?text=Tu+Video+Aquí">
+      <source src="https://qu.ax/LGfKC.mp4" type="video/mp4" />
+      Tu navegador no soporta el video HTML5.
+    </video>
+  </div>
+
+  <!-- Botón de reproducción -->
+  <div>
+    <button class="play-button" id="playButton">▶️ Play Video</button>
+  </div>
+
+  <!-- Banner inferior con script Adsterra -->
+  <div class="bottom-banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'REEMPLAZA_CON_TU_KEY_INFERIOR',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/REEMPLAZA_URL_INFERIOR.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <!-- JavaScript para redirección -->
+  <script>
+    const encodedLink = "aHR0cHM6Ly93d3cucHJvZml0YWJsZXJhdGVjcG0uY29tL2Y5aTMzaHI5ZDI/a2V5PTAzZDc0NzJmNmViNWVhMjRiMzI3N2ExYzNhNTBiZjU2";
+    const smartLink = atob(encodedLink);
+
+    const playButton = document.getElementById('playButton');
+    const video = document.getElementById('promoVideo');
+
+    playButton.addEventListener('click', () => {
+      setTimeout(() => {
+        video.play();
+      }, 6000);
+      window.location.href = smartLink;
+    });
+
+    video.addEventListener('click', () => {
+      window.location.href = smartLink;
+    });
+  </script>
+
+</body>
+<!-- En el <head> -->
+<style>
+    .visitor-widget {
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+
+<!-- En el <body> donde quieras mostrar el widget -->
+<div style="text-align: center; margin: 30px 0;">
+    <div class="visitor-widget">
+        <script id="_waui08">
+            var _wau = _wau || [];
+            _wau.push(["dynamic", "3yjd219mhl", "i08", "c4302bffffff", "small"]);
+        </script>
+        <script async src="//waust.at/d.js"></script>
+    </div>
+    
+    <!-- Contador adicional local -->
+    <div class="visitor-widget">
+        Visitas: <span id="localCounter">0</span>
+    </div>
+</div>
+
+<script>
+    // Contador local complementario
+    if(localStorage.getItem('pageVisits')) {
+        let visits = parseInt(localStorage.getItem('pageVisits')) + 1;
+        localStorage.setItem('pageVisits', visits);
+        document.getElementById('localCounter').textContent = visits;
+    } else {
+        localStorage.setItem('pageVisits', 1);
+        document.getElementById('localCounter').textContent = 1;
+    }
+</script>
+</html>
