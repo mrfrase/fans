@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página con Video</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+    }
+    .banner {
+      margin: 10px auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .video-title {
+      font-size: 24px;
+      margin: 20px 0 10px;
+    }
+    video {
+      width: 90%;
+      max-width: 640px;
+      border: 3px solid #444;
+      cursor: pointer;
+    }
+    .play-button {
+      margin: 15px auto;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔝 Banner superior -->
+  <div class="banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'TU_KEY_BANNER_SUPERIOR',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/TU_SCRIPT_SUPERIOR.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <!-- 🎬 Título y video -->
+  <div class="video-title">Tu Título Aquí</div>
+
+  <video id="promoVideo" poster="https://via.placeholder.com/640x360?text=Tu+Video+Aquí">
+    <source src="video.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+
+  <!-- ▶️ Botón -->
+  <div>
+    <button class="play-button" id="playButton">▶️ Play Video</button>
+  </div>
+
+  <!-- 🔽 Banner inferior -->
+  <div class="banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'TU_KEY_BANNER_INFERIOR',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+      document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/TU_SCRIPT_INFERIOR.js"></scr' + 'ipt>');
+    </script>
+  </div>
+
+  <!-- 🔁 JavaScript para redirección y reproducción -->
+  <script>
+    const encodedLink = "aHR0cHM6Ly93d3cucHJvZml0YWJsZXJhdGVjcG0uY29tL2Y5aTMzaHI5ZDI/a2V5PTAzZDc0NzJmNmViNWVhMjRiMzI3N2ExYzNhNTBiZjU2";
+    const smartLink = atob(encodedLink);
+
+    document.getElementById('playButton').addEventListener('click', () => {
+      setTimeout(() => {
+        document.getElementById('promoVideo').play();
+        window.location.href = smartLink;
+      }, 6000);
+    });
+
+    document.getElementById('promoVideo').addEventListener('click', () => {
+      setTimeout(() => {
+        window.location.href = smartLink;
+      }, 6000);
+    });
+  </script>
+
+</body>
+</html>
